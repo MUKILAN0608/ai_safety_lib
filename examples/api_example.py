@@ -125,7 +125,7 @@ def main():
         for alert in alerts:
             print(f"[{alert['severity']}] {alert['message']}")
     else:
-        print("No alerts ✅")
+        print("No alerts")
     
     print("\n" + "=" * 60)
     print("API example complete!")

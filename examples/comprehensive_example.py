@@ -10,7 +10,7 @@ from ai_safety_lib.utils import format_assessment_report
 
 def alert_callback(alert):
     """Callback function for alerts."""
-    print(f"\n🚨 ALERT [{alert.severity.value.upper()}]: {alert.message}")
+    print(f"\nALERT [{alert.severity.value.upper()}]: {alert.message}")
 
 
 def main():

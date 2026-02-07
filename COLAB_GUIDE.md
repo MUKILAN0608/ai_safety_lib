@@ -311,7 +311,7 @@ axes[1, 1].legend()
 plt.tight_layout()
 plt.show()
 
-print("✅ Visualization complete!")
+print("✓ Visualization complete!")
 '''
 
 print(code_cell_8)
@@ -355,7 +355,7 @@ results = {
 with open('safety_assessment_results.json', 'w') as f:
     json.dump(results, f, indent=2, default=str)
 
-print("✅ Results saved to safety_assessment_results.json")
+print("✓ Results saved to safety_assessment_results.json")
 print("\\nDownloading file...")
 files.download('safety_assessment_results.json')
 '''

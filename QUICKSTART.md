@@ -11,7 +11,7 @@ print("=" * 70)
 # ============================================================================
 # METHOD 1: BASIC INSTALLATION & IMPORT
 # ============================================================================
-print("\n1️⃣  INSTALLATION")
+print("\n1. INSTALLATION")
 print("-" * 70)
 print("""
 From command line:
@@ -29,7 +29,7 @@ Or from source:
 # ============================================================================
 # METHOD 2: BASIC SAFETY EVALUATION
 # ============================================================================
-print("\n2️⃣  BASIC SAFETY EVALUATION")
+print("\n2. BASIC SAFETY EVALUATION")
 print("-" * 70)
 print("""
 from ai_safety_lib.safety_gate import SafetyGate
@@ -69,7 +69,7 @@ print(f"Deploy: {safety_gate.should_deploy(assessment)}")
 # ============================================================================
 # METHOD 3: PERFORMANCE MONITORING
 # ============================================================================
-print("\n3️⃣  PERFORMANCE MONITORING")
+print("\n3. PERFORMANCE MONITORING")
 print("-" * 70)
 print("""
 from ai_safety_lib.monitoring import PerformanceMonitor
@@ -106,7 +106,7 @@ for alert in alerts:
 # ============================================================================
 # METHOD 4: FAIRNESS ANALYSIS
 # ============================================================================
-print("\n4️⃣  FAIRNESS ANALYSIS")
+print("\n4. FAIRNESS ANALYSIS")
 print("-" * 70)
 print("""
 from ai_safety_lib.fairness import FairnessAnalyzer
@@ -135,7 +135,7 @@ for report in reports:
 # ============================================================================
 # METHOD 5: EXPLAINABILITY
 # ============================================================================
-print("\n5️⃣  EXPLAINABILITY & FEATURE IMPORTANCE")
+print("\n5. EXPLAINABILITY & FEATURE IMPORTANCE")
 print("-" * 70)
 print("""
 from ai_safety_lib.explainability import ExplainabilityAnalyzer
@@ -176,7 +176,7 @@ print(analyzer.generate_explanation_report(explanation))
 # ============================================================================
 # METHOD 6: CONFIGURATION MANAGEMENT
 # ============================================================================
-print("\n6️⃣  CONFIGURATION MANAGEMENT")
+print("\n6. CONFIGURATION MANAGEMENT")
 print("-" * 70)
 print("""
 from ai_safety_lib.config import ConfigManager
@@ -201,7 +201,7 @@ config = config_mgr.load_from_env()
 # ============================================================================
 # METHOD 7: REST API SERVER
 # ============================================================================
-print("\n7️⃣  REST API SERVER")
+print("\n7. REST API SERVER")
 print("-" * 70)
 print("""
 # Start server:
@@ -232,7 +232,7 @@ curl -X POST http://localhost:8000/evaluate \\
 # ============================================================================
 # METHOD 8: COMPLETE WORKFLOW
 # ============================================================================
-print("\n8️⃣  COMPLETE WORKFLOW EXAMPLE")
+print("\n8. COMPLETE WORKFLOW EXAMPLE")
 print("-" * 70)
 print("""
 import numpy as np
@@ -308,7 +308,7 @@ print("\\n✅ All checks complete!")
 # ============================================================================
 # DEPLOYMENT OPTIONS
 # ============================================================================
-print("\n9️⃣  DEPLOYMENT OPTIONS")
+print("\n9. DEPLOYMENT OPTIONS")
 print("-" * 70)
 print("""
 OPTION A: Standalone Script
@@ -334,7 +334,7 @@ OPTION D: Cloud Functions
 # ============================================================================
 # EXAMPLES & DOCUMENTATION
 # ============================================================================
-print("\n🔟 EXAMPLES & DOCUMENTATION")
+print("\n10. EXAMPLES & DOCUMENTATION")
 print("-" * 70)
 print("""
 Examples in examples/ directory:

@@ -1,4 +1,4 @@
-# 🚀 Deployment Guide
+# Deployment Guide
 
 This guide covers various deployment scenarios for the AI Safety Library.
 
