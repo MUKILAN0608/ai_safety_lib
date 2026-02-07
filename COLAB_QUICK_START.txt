@@ -1,0 +1,271 @@
+"""
+Quick Colab Setup Script - Run this to get started
+"""
+
+print("""
+╔════════════════════════════════════════════════════════════╗
+║      AI SAFETY LIBRARY - GOOGLE COLAB QUICK START          ║
+╚════════════════════════════════════════════════════════════╝
+
+⚡ FASTEST WAY TO GET STARTED IN COLAB:
+
+Step 1: Open Google Colab
+   → https://colab.research.google.com/
+
+Step 2: Create New Notebook
+   → Click "New Notebook"
+
+Step 3: Run these cells in order:
+""")
+
+# ============================================================================
+# CELL 1
+# ============================================================================
+print("""
+┌─ CELL 1: Install ──────────────────────────────────────────┐
+│                                                              │
+│ !pip install ai-safety-lib -q                              │
+│ print("✅ Installed!")                                      │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# CELL 2
+# ============================================================================
+print("""
+┌─ CELL 2: Imports ──────────────────────────────────────────┐
+│                                                              │
+│ import numpy as np                                          │
+│ from ai_safety_lib.safety_gate import SafetyGate           │
+│ from ai_safety_lib.monitoring import PerformanceMonitor     │
+│ from ai_safety_lib.fairness import FairnessAnalyzer        │
+│ from ai_safety_lib.explainability import (                 │
+│     ExplainabilityAnalyzer                                 │
+│ )                                                           │
+│                                                              │
+│ print("✅ Imports ready!")                                  │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# CELL 3
+# ============================================================================
+print("""
+┌─ CELL 3: Sample Data ──────────────────────────────────────┐
+│                                                              │
+│ np.random.seed(42)                                          │
+│                                                              │
+│ # Your model predictions                                   │
+│ predictions = np.random.uniform(0.65, 0.95, 100)           │
+│                                                              │
+│ # Reference data (baseline)                                │
+│ reference_data = {                                          │
+│     "feature_1": np.random.normal(0, 1, 100),             │
+│     "feature_2": np.random.normal(0, 1, 100)              │
+│ }                                                           │
+│                                                              │
+│ # Current data (for drift detection)                       │
+│ current_data = {                                            │
+│     "feature_1": np.random.normal(0.1, 1.1, 100),         │
+│     "feature_2": np.random.normal(0, 1, 100)              │
+│ }                                                           │
+│                                                              │
+│ # Labels and groups (for fairness)                         │
+│ true_labels = np.random.binomial(1, 0.7, 100)             │
+│ groups = np.random.choice(['A', 'B'], 100)                │
+│                                                              │
+│ print(f"✅ Data ready: {len(predictions)} samples")         │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# CELL 4
+# ============================================================================
+print("""
+┌─ CELL 4: Safety Evaluation ────────────────────────────────┐
+│                                                              │
+│ gate = SafetyGate()                                         │
+│                                                              │
+│ assessment = gate.evaluate(                                │
+│     predictions=predictions,                               │
+│     reference_data=reference_data,                         │
+│     current_data=current_data                              │
+│ )                                                           │
+│                                                              │
+│ print("━" * 50)                                             │
+│ print(f"Risk Level: {assessment.risk_level.value}")         │
+│ print(f"Risk Score: {assessment.overall_risk:.3f}")         │
+│ print(f"Deploy: {'✅ YES' if gate.should_deploy(          │
+│    assessment) else '❌ NO'}")                              │
+│ print("━" * 50)                                             │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# CELL 5
+# ============================================================================
+print("""
+┌─ CELL 5: Performance Monitor ──────────────────────────────┐
+│                                                              │
+│ monitor = PerformanceMonitor()                             │
+│                                                              │
+│ metrics = monitor.calculate_metrics_from_predictions(      │
+│     predictions, true_labels                               │
+│ )                                                           │
+│                                                              │
+│ monitor.record_metrics(**metrics)                          │
+│                                                              │
+│ print(f"Accuracy:  {metrics['accuracy']:.4f}")             │
+│ print(f"Precision: {metrics['precision']:.4f}")            │
+│ print(f"Recall:    {metrics['recall']:.4f}")               │
+│ print(f"F1 Score:  {metrics['f1_score']:.4f}")             │
+│                                                              │
+│ alerts = monitor.get_recent_alerts()                       │
+│ print(f"\\nAlerts: {len(alerts)}")                          │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# CELL 6
+# ============================================================================
+print("""
+┌─ CELL 6: Fairness Check ──────────────────────────────────┐
+│                                                              │
+│ fairness = FairnessAnalyzer()                              │
+│                                                              │
+│ reports = fairness.comprehensive_fairness_check(           │
+│     predictions=predictions,                               │
+│     protected_groups=groups,                               │
+│     true_labels=true_labels                                │
+│ )                                                           │
+│                                                              │
+│ for r in reports:                                           │
+│     print(f"{r.metric_type.value}: ", end="")              │
+│     print("✅ FAIR" if r.is_fair else "⚠️ BIASED")         │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# CELL 7
+# ============================================================================
+print("""
+┌─ CELL 7: Feature Importance ──────────────────────────────┐
+│                                                              │
+│ explainer = ExplainabilityAnalyzer()                       │
+│                                                              │
+│ importances = explainer.calculate_feature_importance(       │
+│     feature_values=current_data,                           │
+│     predictions=predictions                                │
+│ )                                                           │
+│                                                              │
+│ print("\\nTop Features:")                                   │
+│ for imp in importances[:3]:                                │
+│     bar = "█" * int(imp.importance_score * 30)             │
+│     print(f"{imp.rank}. {imp.feature_name}: {bar}")        │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# TIPS
+# ============================================================================
+print("""
+┌─ 💡 COLAB TIPS ────────────────────────────────────────────┐
+│                                                              │
+│ • Use !pip for installations (with -q flag)               │
+│ • Restart kernel after first install                       │
+│ • Use -q flag to suppress pip output                       │
+│ • Mount Google Drive for datasets:                         │
+│   from google.colab import drive                           │
+│   drive.mount('/content/drive')                            │
+│                                                              │
+│ • Download results:                                        │
+│   from google.colab import files                           │
+│   files.download('results.json')                           │
+│                                                              │
+│ • Save to Google Drive:                                    │
+│   import shutil                                            │
+│   shutil.copy('file.json', '/content/drive/...')         │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# YOUR OWN DATA
+# ============================================================================
+print("""
+┌─ 📊 USING YOUR OWN DATA ──────────────────────────────────┐
+│                                                              │
+│ Instead of random data, use your own:                      │
+│                                                              │
+│ # Load from CSV                                            │
+│ import pandas as pd                                        │
+│ df = pd.read_csv('data.csv')                               │
+│ predictions = model.predict(df)                            │
+│                                                              │
+│ # Or from Google Drive                                     │
+│ df = pd.read_csv('/content/drive/My Drive/data.csv')       │
+│                                                              │
+│ # Then extract features                                    │
+│ reference_data = {                                         │
+│     col: df[col].values.tolist()                           │
+│     for col in ['age', 'income', ...]                      │
+│ }                                                           │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+# ============================================================================
+# FULL EXAMPLE
+# ============================================================================
+print("""
+┌─ 🚀 FULL EXAMPLE IN ONE CELL ──────────────────────────────┐
+│                                                              │
+│ !pip install ai-safety-lib -q                              │
+│ import numpy as np                                          │
+│ from ai_safety_lib.safety_gate import SafetyGate           │
+│                                                              │
+│ # Quick test                                               │
+│ np.random.seed(42)                                         │
+│ gate = SafetyGate()                                        │
+│                                                              │
+│ predictions = np.random.uniform(0.7, 0.95, 100)            │
+│ ref_data = {"f1": np.random.normal(0, 1, 100)}             │
+│ cur_data = {"f1": np.random.normal(0.1, 1.1, 100)}         │
+│                                                              │
+│ assessment = gate.evaluate(predictions, ref_data, cur_data)│
+│                                                              │
+│ print(f"✅ Risk: {assessment.risk_level.value}")            │
+│ print(f"✅ Deploy: {gate.should_deploy(assessment)}")       │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+""")
+
+print("""
+╔════════════════════════════════════════════════════════════╗
+║                 READY TO USE IN COLAB! 🎉                  ║
+╚════════════════════════════════════════════════════════════╝
+
+👉 NEXT STEPS:
+
+1. Go to https://colab.research.google.com/
+2. Create new notebook
+3. Copy-paste the cells above
+4. Run them in order
+5. Replace sample data with your own
+6. Analyze your model!
+
+📚 FULL DOCUMENTATION:
+   - COLAB_GUIDE.md (detailed guide)
+   - README.md (complete documentation)
+   - examples/ (more examples)
+
+❓ QUESTIONS?
+   Check GitHub: https://github.com/MUKILAN0608/ai_safety_lib
+""")
