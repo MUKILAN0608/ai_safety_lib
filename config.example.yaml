@@ -1,0 +1,15 @@
+# Safety Configuration
+safety:
+  confidence_threshold: 0.7
+  drift_threshold: 0.3
+  allow_warning: false
+  fairness_threshold: 0.8
+
+# Monitoring Configuration
+monitoring:
+  enable_alerts: true
+  alert_thresholds:
+    accuracy: 0.7
+    error_rate: 0.1
+    latency_ms: 1000.0
+  metrics_retention_days: 30

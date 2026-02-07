@@ -43,7 +43,7 @@ class DriftDetector:
     ) -> bool:
         """Detect if a specific feature has drifted."""
         drift_score = self.calculate_drift_score(reference_data, current_data)
-        return drift_score > self.drift_threshold
+        return bool(drift_score > self.drift_threshold)
     
     def assess_drift(
         self,
