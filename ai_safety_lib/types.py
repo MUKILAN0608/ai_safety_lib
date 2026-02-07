@@ -7,6 +7,7 @@ from enum import Enum
 
 class SafetyLevel(Enum):
     """Enumeration of safety levels."""
+
     SAFE = "safe"
     WARNING = "warning"
     CRITICAL = "critical"
@@ -15,6 +16,7 @@ class SafetyLevel(Enum):
 @dataclass
 class SafetyMetric:
     """Base class for safety metrics."""
+
     name: str
     value: float
     threshold: float
@@ -24,6 +26,7 @@ class SafetyMetric:
 @dataclass
 class ModelConfidence:
     """Model confidence metrics."""
+
     predictions: List[float]
     uncertainties: List[float]
     mean_confidence: float
@@ -32,6 +35,7 @@ class ModelConfidence:
 @dataclass
 class DriftMetric:
     """Data drift detection metrics."""
+
     dataset: str
     drift_score: float
     detected: bool
