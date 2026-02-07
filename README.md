@@ -14,7 +14,7 @@ A comprehensive Python library for AI safety monitoring, risk assessment, and de
 
 ### From Source
 ```bash
-git clone https://github.com/yourusername/ai_safety_lib.git
+git clone https://github.com/MUKILAN0608/ai_safety_lib.git
 cd ai_safety_lib
 pip install -e .
 ```
