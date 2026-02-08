@@ -8,8 +8,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="ai-safety-lib",
     version="0.2.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Mukilan A.M",
+    author_email="mukilanam06@gmail.com",
     description="A comprehensive library for AI safety monitoring, risk assessment, fairness, and explainability",
     long_description=long_description,
     long_description_content_type="text/markdown",
