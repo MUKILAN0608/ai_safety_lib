@@ -10,7 +10,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![GitHub Stars](https://img.shields.io/github/stars/MUKILAN0608/ai_safety_lib?style=social)](https://github.com/MUKILAN0608/ai_safety_lib)
 
-**🔒 Production-Ready** • **🎯 Easy to Use** • **⚡ Lightning Fast** • **📊 Comprehensive**
+**🔒 Production-Ready** • **🎯 Easy to Use** • **⚡ Lightning Fast** • **📊 Comprehensive**                  
 
 *Stop deploying risky AI models. Start ensuring safety, fairness, and reliability.*
 
